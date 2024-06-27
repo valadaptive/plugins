@@ -45,6 +45,7 @@ export function getDynamicRequireModules(patterns, dynamicRequireRoot) {
     for (const path of new fdir()
       .withBasePath()
       .glob(isNegated ? pattern.substr(1) : pattern)
+      .withDirs(true)
       .crawl()
       .sync()
       .sort((a, b) => a.localeCompare(b, 'en'))) {
